@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/styles/common.css">
+	<link rel="stylesheet" href="static/styles/header.css">
+	<link rel="stylesheet" href="static/styles/recent.css">
+	<title>Omni</title>
+</head>
+<body>
+	<nav>
+		<div id="home_logo"></div>
+	</nav>
+	<div class="container">
+		<section class="recent">
+			<div class="recent_movie">
+				<img src={{movies[3].thumbnail}} alt="">
+			</div>
+			<button id="play">
+				Play
+			</button>
+			<button id="watch_list">
+				Watch List
+			</button>
+		</section>
+		<section>
+			{%for cast in movies[0].actors%}
+			<span>
+				{{cast.first_name}} {{cast.last_name}},
+			</span>
+			{% endfor %}
+		</section>
+
+	</div>
+</body>
+</html>
