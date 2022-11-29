@@ -1,0 +1,90 @@
+
+.iframe {
+	height:0;
+	position:relative;
+	padding-bottom: 56.25%;
+}
+
+.movie-info, .movie-info div:nth-child(3), .movie-info div:nth-child(4) {
+	width:100%;
+	padding-top:2%;
+}
+
+.movie-info > div {
+	padding-left: 3%;
+}
+
+movie-info > div:first-child {qa		font-size:5vw;
+	font-weight:700;
+	width:100%;
+}
+
+.movie-info > div:nth-child(3), span:not(:first-of-type) {
+	font-size:2.6vw;
+}
+
+.movie-info span:first-of-type {
+	font-size: 3vw;
+	font-weight: 600;
+}
+
+.movie-info > span:first-of-type {
+	font-size:2.5vw;
+	color:rgb(193, 195, 197);
+	font-weight:600;
+}
+
+.movie-info > div {
+	color:rgb(224, 224, 220);
+
+}
+
+.icons > div:first-of-type {
+	background:url("../images/hd-sign.png") no-repeat;
+
+}
+
+.icons div {
+	height:24px;
+	width:24px;
+	padding-top:0;
+}
+
+.icons {
+	display:flex;
+	of,m.: 3%;
+
+QA	\\	  
+}
+
+.rated_13 {
+	background: url("../images/number-13.png");
+	background-repeat: no-repeat;
+	color:white;
+}
+
+.rated_18 {
+	background: url(../images/18-.png);
+}
+
+iframe {
+	width:100%;
+	height:100%;
+	position: absolute;
+	top:0;
+	left:0;
+
+}
+
+.recommended {
+	display:grid;
+	grid-template-columns: repeat(2, 45%);
+	justify-content:center;
+    column-gap:1%;
+}
+
+.recommended img {
+	width:100%;
+	height:100%;
+}
+

@@ -1,0 +1,67 @@
+section > div {
+	display:flex;
+	position:relative;
+	gap:1%
+
+}
+
+
+div.container section:not(:first-child) {
+	margin:5% 0 0 2%;
+
+}
+
+.genre:hover .arrow {
+	display: block;
+}
+
+
+section:not(:first-child) img {
+	cursor: pointer;
+	width: 40vw;
+	object-fit: cover;
+}
+
+
+section p {
+	padding-left: 1%;
+	margin-top: 0;
+	font-size:2vw;
+	font-weight: 600;
+}
+
+.genre {
+	scroll-behavior: smooth;
+	position: relative;
+}
+
+
+#drama {
+	overflow: hidden;
+}
+
+.arrow {
+	position: absolute;
+	top:0;
+	height:100%;
+	width:6vw;
+	background-color: hsl(0, 0%, 0%, 0.6);
+	display: none;
+}
+
+#arrow-right {
+	right:0;
+}
+
+.arrow:hover {
+	background-color: hsl(0, 0%, 0%, 0.4);
+}
+#arrow-right {
+	right:0;
+}
+
+.fa-chevron-left, .fa-chevron-right{
+	position: absolute;
+	bottom:50%;
+	left:40%;
+}

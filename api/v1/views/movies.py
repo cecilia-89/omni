@@ -22,5 +22,17 @@ def movies():
         movie.save()
         return jsonify(movie.to_dict()), 201
 
-    movies = {movie.title:movie.id for movie in storage.all(Movie)}
-    return movies
+    movies = [movie.to_dict() for movie in storage.all(Movie)]
+    return jsonify(movies)
+
+@app_views.route('/movie/<movie_id>',
+                 methods=['DELETE'],
+                 strict_slashes=False)
+def delete_movie(movie_id):
+    """deletes a movie based on it's id"""
+    if request.method == 'DELETE':
+        movie = storage.get(Movie, movie_id)
+        storage.delete(movie)
+        storage.save()
+
+    return "deleted\n"

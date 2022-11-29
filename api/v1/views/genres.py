@@ -21,6 +21,18 @@ def genre():
         genre.save()
         return jsonify(genre.to_dict()), 201
 
-    genres = {genre.title:genre.id for genre in storage.all(Genre)}
+    genres = {genre.id:genre.title for genre in storage.all(Genre)}
     return genres
 
+
+@app_views.route('/genre/<genre_id>',
+                 methods=['DELETE'],
+                 strict_slashes=False)
+def delete_genre(genre_id):
+    """displays and creates a genre object"""
+    if request.method == 'DELETE':
+        genre = storage.get(Genre, genre_id)
+        storage.delete(genre)
+        storage.save()
+
+    return "deleted\n"

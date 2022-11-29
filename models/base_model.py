@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module: database storage"""
-from datetime import date
+from datetime import datetime
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, String, DateTime
 import models
@@ -12,7 +12,7 @@ class BaseModel:
     """base class upon which other class will be derived"""
 
     id = Column(String(60), primary_key=True)
-    added_at = Column(DateTime, default=date.today)
+    added_at = Column(DateTime, default=datetime.now())
 
     def __init__(self, *args, **kwargs):
         """initializes an instance"""
@@ -21,7 +21,7 @@ class BaseModel:
                 setattr(self, key, value)
 
         self.id = uuid.uuid4()
-        self.added_at = date.today()
+        self.added_at = datetime.now()
 
     def save(self):
         """adds and saves instance to the database session"""

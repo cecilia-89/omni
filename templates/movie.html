@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/styles/common.css">
+	<link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+	<link rel="stylesheet" href="../static/styles/movie.css">
+	<title>OMNI - {{movie.title}}</title>
+</head>
+<body>
+	<div class="container">
+		<div class="iframe">
+			<iframe src="{{movie.url}}" allow="fullscreen" rel="0" frameborder="0"></iframe>
+		</div>
+
+		<div class="movie-info">
+			<div>{{movie.title}}</div>
+			<div class="icons">
+				<div></div>
+				{% if movie.rated_18 == False %}
+				<div class="rated_13"></div>
+				{%else%}
+				<div class="rated_18"></div>
+				{%endif%}
+			</div>
+			<div>{{movie.description}}</div>
+
+			<div>
+				<span>Cast: </span>
+				{% for actor in movie.actors%}
+				<span>
+					{{actor.first_name}} {{actor.last_name}},
+				</span>
+				{% endfor %}
+			</div>
+
+			<div>More Like This</div>
+			<div class="recommended">
+				{%for movie in recommended%}
+				<div><img src={{movie.thumbnail}} alt=""></div>
+				{%endfor%}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

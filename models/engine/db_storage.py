@@ -39,7 +39,13 @@ class DBStorage:
 
         return objects
 
+    def genre(self, id):
+        objs = self.__session.query(Movie).all()
+        objects = [obj for obj in objs if obj.genre_id == id]
+        return objects
+
     def get(self, cls, id):
+        """gets an obj based on the id objects belonging to a class"""
         objs = self.all(cls)
         for obj in objs:
             if obj.id == id:

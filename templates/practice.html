@@ -4,35 +4,73 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="static/styles/common.css">
-	<link rel="stylesheet" href="static/styles/header.css">
-	<link rel="stylesheet" href="static/styles/recent.css">
-	<title>Omni</title>
+	<link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+	<link rel="stylesheet" href="../static/styles/common.css">
+	<link rel="stylesheet" href="../static/styles/header.css">
+	<link rel="stylesheet" href="../static/styles/recent.css">
+	<link rel="stylesheet" href="../static/styles/movies.css">
+	<link rel="stylesheet" href="../static/styles/footer.css">
+	<script src="https://kit.fontawesome.com/e8b132ab7c.js" crossorigin="anonymous"></script>
+	<title>OMNI</title>
 </head>
 <body>
 	<nav>
 		<div id="home_logo"></div>
 	</nav>
 	<div class="container">
+
 		<section class="recent">
-			<div class="recent_movie">
-				<img src={{movies[3].thumbnail}} alt="">
+			{% for movie in movies %}
+			<div data-image class="recent_movie">
+				<img src={{movie.thumbnail}} alt="">
+				<p>{{movie.description}}</p>
 			</div>
+
+			{% endfor %}
 			<button id="play">
+				<i class="fa-solid fa-play"></i>
 				Play
 			</button>
 			<button id="watch_list">
-				Watch List
+				<i class="fa-solid fa-plus"></i>
+				My List
 			</button>
-		</section>
-		<section>
-			{%for cast in movies[0].actors%}
-			<span>
-				{{cast.first_name}} {{cast.last_name}},
-			</span>
-			{% endfor %}
+
+			<div class="slide-arrow" data-angle="prev"><i class="fa-solid fa-chevron-left"></i></div>
+			<div class="slide-arrow" data-angle="next"><i class="fa-solid fa-chevron-right"></i></div>
+
 		</section>
 
+		<section>
+			<p>Drama</p>
+			<div class="genre" id="drama">
+				{% for item in drama %}
+				<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
+				{% endfor %}
+				<div class="arrow" onclick="scrolll()"><i class="fa-solid fa-chevron-left"></i></div>
+				<div id="arrow-right" onclick="scrollr()" class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+			</div>
+
+		</section>
+
+		<section>
+			<p>Romance</p>
+			<div class="genre" id="romance">
+				{% for item in romance %}
+				<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
+				{% endfor %}
+				<div class="arrow"><i class="fa-solid fa-chevron-left"></i></div>
+				<div id="arrow-right" class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+			</div>
+
+		</section>
+
+		<footer>
+			<p>omni 2022</p>
+		</footer>
+
 	</div>
+
+	<script src="../static/scripts/main.js"></script>
 </body>
 </html>
