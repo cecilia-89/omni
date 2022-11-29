@@ -39,7 +39,7 @@
 			<div>More Like This</div>
 			<div class="recommended">
 				{%for movie in recommended%}
-				<div><img src={{movie.thumbnail}} alt=""></div>
+				<div><a href="{{ url_for('omni_movie', movie_id=movie.id) }}"><img src={{movie.thumbnail}} alt=""></a></div>
 				{%endfor%}
 			</div>
 		</div>

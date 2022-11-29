@@ -14,13 +14,20 @@
 	padding-left: 3%;
 }
 
-movie-info > div:first-child {qa		font-size:5vw;
+.movie-info > div:first-child {
+	font-size:5vw;
 	font-weight:700;
 	width:100%;
 }
 
 .movie-info > div:nth-child(3), span:not(:first-of-type) {
 	font-size:2.6vw;
+}
+
+.movie-info > div:nth-child(5) {
+	padding:8% 0 0 3%;
+	font-size:5vw;
+	font-weight: 700;
 }
 
 .movie-info span:first-of-type {
@@ -52,9 +59,7 @@ movie-info > div:first-child {qa		font-size:5vw;
 
 .icons {
 	display:flex;
-	of,m.: 3%;
-
-QA	\\	  
+	gap: 1.5%;
 }
 
 .rated_13 {
@@ -78,9 +83,10 @@ iframe {
 
 .recommended {
 	display:grid;
-	grid-template-columns: repeat(2, 45%);
+	grid-template-columns: repeat(2, 49%);
 	justify-content:center;
-    column-gap:1%;
+	column-gap: 2%;
+	padding: 0 5%;
 }
 
 .recommended img {
