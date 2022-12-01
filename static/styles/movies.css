@@ -5,13 +5,24 @@ section > div {
 
 }
 
-
+[data-slides]::before {
+	content: "";
+	background:linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,1)),
+			   linear-gradient(to top, rgba(0,0,0,0) 70%, rgba(0,0,0,1)),
+			   linear-gradient(to left, rgba(0,0,0,0) 80%, rgba(0,0,0,0.5)),
+			   linear-gradient(to right, rgba(0,0,0,0)80%, rgba(0,0,0,0.5));
+	position: absolute;
+	top:0;
+	width:100%;
+	height:100%;
+	z-index:2;
+}
 div.container section:not(:first-child) {
 	margin:5% 0 0 2%;
 
 }
 
-.genre:hover .arrow {
+.genre:hover [data-arrow] {
 	display: block;
 }
 
@@ -33,14 +44,11 @@ section p {
 .genre {
 	scroll-behavior: smooth;
 	position: relative;
+	overflow:hidden;
 }
 
 
-#drama {
-	overflow: hidden;
-}
-
-.arrow {
+[data-arrow] {
 	position: absolute;
 	top:0;
 	height:100%;
@@ -49,14 +57,15 @@ section p {
 	display: none;
 }
 
-#arrow-right {
+[data-arrow="right"] {
 	right:0;
 }
 
-.arrow:hover {
+[data-arrow]:hover {
 	background-color: hsl(0, 0%, 0%, 0.4);
 }
-#arrow-right {
+
+[data-arrow="right"] {
 	right:0;
 }
 

@@ -1,18 +1,72 @@
 nav {
-	background-color:hsl(0, 0%, 0%, 0, 0);
+	background-color:hsl(0, 0%, 0%);
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+nav > div:nth-child(2) {
+	display:flex;
 	width:100%;
-	height:50px;
-	position: absolute;
-	top:0;
-	z-index:1;
+	justify-content: flex-end;
+	align-items: center;
+	gap:3%;
+}
+
+nav > div:first-child {
+	display:flex;
+	align-items: center;
+	padding-left:3%;
 }
 
 #home_logo {
-	background-image: url('../images/favicon.ico');
 	display: block;
 	background-repeat: no-repeat;
 	background-position:center;
-	width:50px;
-	height:50px;
+	width:4vw;
 }
 
+form {
+	position:relative;
+	height: 100%;
+}
+
+
+nav input {
+	width:40vw;
+	background: rgba(0, 0, 0, 0);
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 2vh;
+	padding-top: 1%;
+	color: rgb(255, 255, 255);
+	outline: 0;
+	display:none;
+
+}
+
+.fa-magnifying-glass {
+	color:rgb(255, 255, 255);
+	font-size: 1.8vw;
+}
+
+.fa-house {
+	color: rgb(255, 255, 255);
+	font-size: 2vw;
+	padding-right: 5%;
+}
+
+.fa-n, .fa-i {
+	color:white;
+	font-size: 1.8vw;
+}
+
+nav button {
+	background: rgba(0, 0, 0, 0);
+	border-width: 0;
+	border-color:white;
+}
+
+nav button:hover,
+nav button:focus {
+	cursor:pointer;
+}

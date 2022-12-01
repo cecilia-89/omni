@@ -15,18 +15,30 @@
 </head>
 <body>
 	<nav>
-		<div id="home_logo"></div>
+		<div>
+			<img id="home_logo" src="../static/images/omni.ico" alt="">
+			<i class="fa-solid fa-n"></i>
+			<i class="fa-solid fa-i"></i>
+		</div>
+		<div>
+			<form action="">
+				<input data-search type="text" placeholder="   Search {{ count }} Movies..." name="" id="">
+				<button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+			</form>
+			<i class="fa-solid fa-house"></i>
+		</div>
 	</nav>
 	<div class="container">
 
 		<section class="recent">
-			{% for movie in movies %}
-			<div data-image class="recent_movie">
-				<img src={{movie.thumbnail}} alt="">
-				<p>{{movie.description}}</p>
+			<div data-slides>
+				{% for movie in movies %}
+				<div class="recent_movie">
+					<img src={{movie.thumbnail}} alt="">
+					<p>{{movie.description}}</p>
+				</div>
+				{% endfor %}
 			</div>
-
-			{% endfor %}
 			<button id="play">
 				<i class="fa-solid fa-play"></i>
 				Play
@@ -43,30 +55,30 @@
 
 		<section>
 			<p>Drama</p>
-			<div class="genre" id="drama">
+			<div class="genre">
 				{% for item in drama %}
 				<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
 				{% endfor %}
-				<div class="arrow" onclick="scrolll()"><i class="fa-solid fa-chevron-left"></i></div>
-				<div id="arrow-right" onclick="scrollr()" class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+				<div data-arrow=""><i class="fa-solid fa-chevron-left"></i></div>
+				<div data-arrow="right"><i class="fa-solid fa-chevron-right"></i></div>
 			</div>
 
 		</section>
 
 		<section>
 			<p>Romance</p>
-			<div class="genre" id="romance">
+			<div class="genre">
 				{% for item in romance %}
 				<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
 				{% endfor %}
-				<div class="arrow"><i class="fa-solid fa-chevron-left"></i></div>
-				<div id="arrow-right" class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+				<div data-arrow=""><i class="fa-solid fa-chevron-left"></i></div>
+				<div data-arrow="right"><i class="fa-solid fa-chevron-right"></i></div>
 			</div>
 
 		</section>
 
 		<footer>
-			<p>omni 2022</p>
+			<p>OMNI &#169; 2022</p>
 		</footer>
 
 	</div>

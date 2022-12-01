@@ -5,9 +5,14 @@
 .slide-arrow {
 	position: absolute;
 	top:50%;
-	z-index:3;
+	z-index:2;
 	font-size: calc(1.2em + 0.390625vw);
 	background: hsl(0, 0%, 0%, 0.5);
+
+}
+
+.slide-arrow:hover {
+	cursor: pointer;
 }
 
 [data-angle="prev"] {
@@ -18,18 +23,21 @@
 	right:6%;
 }
 
-[data-images], div.recent_movie:not(:first-child) {
+.recent_movie {
 	position: absolute;
 	top:0;
 	opacity: 0;
+	transition: 300ms opacity ease-in-out;
+    transition-delay: 300ms;
 }
 
-[data-image] {
+
+.data-image {
 	position: relative;
 	top: 0;
 	opacity:1;
+	transition-delay: 0ms;
 }
-
 
 
 .recent_movie img {
@@ -49,6 +57,7 @@
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
 	padding: 0;
+	z-index:2;
 }
 
 .recent button {
@@ -62,6 +71,7 @@
 	font-weight: 600;
 	width:15%;
 	min-height:12%;
+	z-index: 2;
 	padding:0;
 }
 

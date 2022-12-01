@@ -1,36 +1,36 @@
-function scrolll() {
-	let left = document.querySelector('#drama')
-	left.scrollBy(350, 0)
-}
+document.querySelectorAll('[data-arrow').forEach(arrow => {
+    arrow.addEventListener('click', () => {
+        let parent = arrow.parentElement
+        arrow.dataset.arrow === 'right' ? parent.scrollBy(-350, 0) : parent.scrollBy(350, 0)
+    })
+})
 
-function scrollr() {
-	let right = document.querySelector('#drama')
-	right.scrollBy(-350, 0)
-}
 
+
+let item = document.querySelector('.recent_movie')
+item.classList.add('data-image')
 
 document.querySelectorAll('.slide-arrow').forEach(arrow => {
 
     arrow.addEventListener('click', () => {
-
         let count = arrow.dataset.angle === 'next' ? 1:-1
 
-        let slides = document.querySelectorAll('.recent_movie')
+        var slides = document.querySelector('[data-slides]')
 
-        let currentImage = document.querySelector('[data-image]')
+        var currentImage = slides.querySelector('.data-image')
 
-        let nextIndex = Array.from(slides).indexOf(currentImage) + count
 
-        const currentIndex =  Array.from(slides).indexOf(currentImage)
+        var nextIndex = [...slides.children].indexOf(currentImage) + count
 
-        if(nextIndex < 0) nextIndex= Array.from(slides).length -1
+        var currentIndex =  [...slides.children].indexOf(currentImage)
 
-        if(nextIndex >= slides.length) nextIndex = 0
+        if(nextIndex < 0) nextIndex= [...slides.children].length -1
 
-        Array.from(slides)[nextIndex].dataset.image = true
+        if(nextIndex >= [...slides.children].length) nextIndex = 0
 
-        Array.from(slides)[currentIndex].dataset.images = true
+        slides.children[nextIndex].classList.add('data-image')
 
-        delete currentImage.dataset.image
+        slides.children[currentIndex].classList.remove('data-image')
 
-    })})
+    })
+})
