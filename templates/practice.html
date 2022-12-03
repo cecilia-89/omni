@@ -53,29 +53,20 @@
 
 		</section>
 
+		{% for key, value in lists.items() %}
 		<section>
-			<p>Drama</p>
+			<p>{{key}}</p>
 			<div class="genre">
-				{% for item in drama %}
-				<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
-				{% endfor %}
 				<div data-arrow=""><i class="fa-solid fa-chevron-left"></i></div>
+				<div>
+					{% for item in value %}
+					<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
+					{% endfor %}
+				</div>
 				<div data-arrow="right"><i class="fa-solid fa-chevron-right"></i></div>
 			</div>
-
 		</section>
-
-		<section>
-			<p>Romance</p>
-			<div class="genre">
-				{% for item in romance %}
-				<div><a href="{{ url_for('omni_movie', movie_id=item.id)}}"><img src={{item.thumbnail}} alt=""></a></div>
-				{% endfor %}
-				<div data-arrow=""><i class="fa-solid fa-chevron-left"></i></div>
-				<div data-arrow="right"><i class="fa-solid fa-chevron-right"></i></div>
-			</div>
-
-		</section>
+		{% endfor %}
 
 		<footer>
 			<p>OMNI &#169; 2022</p>

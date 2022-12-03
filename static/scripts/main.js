@@ -1,10 +1,14 @@
 document.querySelectorAll('[data-arrow').forEach(arrow => {
     arrow.addEventListener('click', () => {
-        let parent = arrow.parentElement
-        arrow.dataset.arrow === 'right' ? parent.scrollBy(-350, 0) : parent.scrollBy(350, 0)
+        if (arrow.dataset.arrow === 'right') {
+            let prev = arrow.previousElementSibling
+            prev.scrollBy(-500, 0)
+        } else {
+            let next = arrow.nextElementSibling
+            next.scrollBy(500, 0)
+        }
     })
 })
-
 
 
 let item = document.querySelector('.recent_movie')

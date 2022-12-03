@@ -13,17 +13,15 @@ movies = storage.all(Movie)
 @app.route('/omni/', strict_slashes=False)
 def omni():
     """lists all cities in alphabetical order"""
-    action = storage.genre('88a468d3-877e-4657-b4e0-50e1e46ef3fa')
-    drama = storage.genre('ded6288a-6e3f-4809-8318-f7d0bae223bc')
-    romance = storage.genre('43cb9232-52c6-4e6c-9c84-48c776d1f0f5')
+    movies = storage.all(Movie)
+    lists = {item.title:storage.genre(item.id) for item in storage.all(Genre)}
     count = storage.count(Movie)
     return render_template("practice.html",
-                           movies=movies,
-                           action = action,
-                           drama = drama,
-                           romance = romance,
+                           movies=movies[0:5],
+                           lists=lists,
                            count=count
                            )
+
 @app.route('/omni/<movie_id>', strict_slashes=False)
 def omni_movie(movie_id):
     movie = storage.get(Movie, movie_id)

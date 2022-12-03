@@ -1,8 +1,9 @@
-section > div {
+.genre {
+	position: relative;
+}
+.genre > div:nth-child(2) {
 	display:flex;
-	position:relative;
 	gap:1%
-
 }
 
 [data-slides]::before {
@@ -41,7 +42,7 @@ section p {
 	font-weight: 600;
 }
 
-.genre {
+.genre > div:nth-child(2){
 	scroll-behavior: smooth;
 	position: relative;
 	overflow:hidden;
@@ -54,19 +55,17 @@ section p {
 	height:100%;
 	width:6vw;
 	background-color: hsl(0, 0%, 0%, 0.6);
-	display: none;
+	z-index: 1;
+
 }
 
 [data-arrow="right"] {
 	right:0;
 }
+
 
 [data-arrow]:hover {
 	background-color: hsl(0, 0%, 0%, 0.4);
-}
-
-[data-arrow="right"] {
-	right:0;
 }
 
 .fa-chevron-left, .fa-chevron-right{
