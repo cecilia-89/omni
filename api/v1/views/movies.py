@@ -15,6 +15,7 @@ def movies():
         res = request.get_json()
         res['rated_18'] = strtobool(res['rated_18'])
         res['series'] = strtobool(res['series'])
+        res['quality'] = strtobool(res['quality'])
         if res is None:
             abort(400, description='Not a JSON')
 

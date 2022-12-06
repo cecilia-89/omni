@@ -2,10 +2,10 @@ document.querySelectorAll('[data-arrow').forEach(arrow => {
     arrow.addEventListener('click', () => {
         if (arrow.dataset.arrow === 'right') {
             let prev = arrow.previousElementSibling
-            prev.scrollBy(-500, 0)
+            prev.scrollBy(-900, 0)
         } else {
             let next = arrow.nextElementSibling
-            next.scrollBy(500, 0)
+            next.scrollBy(900, 0)
         }
     })
 })

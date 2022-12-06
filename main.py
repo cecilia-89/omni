@@ -12,7 +12,7 @@ movies = storage.all(Movie)
 
 @app.route('/omni/', strict_slashes=False)
 def omni():
-    """lists all cities in alphabetical order"""
+    """returns variables to practice.html template"""
     movies = storage.all(Movie)
     lists = {item.title:storage.genre(item.id) for item in storage.all(Genre)}
     count = storage.count(Movie)

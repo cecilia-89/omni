@@ -13,11 +13,11 @@ movie_actors = Table(
 
 class Movie(BaseModel, Base):
 	__tablename__ = 'movie'
-	url = Column(String(64), nullable=False)
-	title = Column(String(32), nullable=False)
+	url = Column(String(1024), nullable=False)
+	title = Column(String(64), nullable=False)
 	series = Column(Boolean, default=False, nullable=True)
 	rated_18 = Column(Boolean, default=False, nullable=True)
 	genre_id = Column(String(64), ForeignKey('genre.id'), nullable=False)
-	thumbnail = Column(String(64), nullable=True)
-	description = Column(String(2096), nullable=False)
+	thumbnail = Column(String(1024), nullable=True)
+	description = Column(String(6000), nullable=False)
 	actors = relationship('Actor', secondary=movie_actors)

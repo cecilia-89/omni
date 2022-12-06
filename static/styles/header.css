@@ -29,27 +29,40 @@ nav > div:first-child {
 form {
 	position:relative;
 	height: 100%;
-	display:flex;
 	align-items: center;
 	justify-content: center;
 }
 
 
 nav input {
-	width:40vw;
 	background: rgba(0, 0, 0, 0);
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 2vh;
 	padding-top: 1%;
 	color: rgb(255, 255, 255);
 	outline: 0;
-	display:none;
+	width:0;
+	text-indent: 3%;
+	transition: all 0.5s ease-in-out;
+	font-size: 1.5vw;
 
+}
+
+.dropdown {
+	width:85%;
+	background: red;
+	margin:0;
+	border-radius: 10px;
 }
 
 .fa-magnifying-glass {
 	color:rgb(255, 255, 255);
 	font-size: 1.8vw;
+	transition: width 0.5s ease-in-out;
+}
+
+form:hover .fa-magnifying-glass {
+	font-size: 1.3vw;
 }
 
 .fa-house {
@@ -58,10 +71,12 @@ nav input {
 	padding-right: 5%;
 }
 
+
 .fa-n, .fa-i {
 	color:white;
 	font-size: 1.8vw;
 }
+
 
 nav button {
 	background: rgba(0, 0, 0, 0);
@@ -72,4 +87,9 @@ nav button {
 nav button:hover,
 nav button:focus {
 	cursor:pointer;
+}
+
+form:hover [data-search] {
+	width: 35vw;
+	opacity:1;
 }
