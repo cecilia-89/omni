@@ -23,7 +23,7 @@ nav > div:first-child {
 	display: block;
 	background-repeat: no-repeat;
 	background-position:center;
-	width:50px;
+	width:45px;
 }
 
 form {
@@ -74,7 +74,11 @@ form:hover .fa-magnifying-glass {
 
 .fa-n, .fa-i {
 	color:white;
-	font-size: 20px;
+	font-size: 17px;
+}
+
+.fa-n {
+	margin-left: -10px;
 }
 
 

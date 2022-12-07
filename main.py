@@ -16,8 +16,8 @@ def omni():
     movies = storage.all(Movie)
     lists = {item.title:storage.genre(item.id) for item in storage.all(Genre)}
     count = storage.count(Movie)
-    return render_template("practice.html",
-                           movies=movies[0:5],
+    return render_template("index.html",
+                           movies=movies[-6:-1],
                            lists=lists,
                            count=count
                            )

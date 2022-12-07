@@ -10,4 +10,4 @@ cors = CORS(app, resources={r"/api/*": {"origins": "0.0.0.0"}})
 app.register_blueprint(app_views)
 
 if __name__ == "__main__":
-	app.run()
+	app.run(port="5100")

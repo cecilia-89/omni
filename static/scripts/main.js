@@ -1,6 +1,5 @@
 //Module: main.js resposible for site responsive
 
-
 let start = 0;
 let end = 0;
 
@@ -10,11 +9,18 @@ let end = 0;
 document.querySelectorAll('.slider').forEach(slide => {
     slide.addEventListener('touchstart', (e) => {
         start = e.changedTouches[0].screenX;
+        console.log(e.changedTouches)
+        console.log(start)
     })
 
     slide.addEventListener('touchend', (e) => {
         end = e.changedTouches[0].screenX;
+        console.log(end)
         checkDir(slide)
+    })
+
+    slide.addEventListener('touchmove', (e) => {
+        slide.scrollBy(50, 0)
     })
 
 })
@@ -29,7 +35,8 @@ function checkDir(param) {
 // simple query to enable div scroll left
 //or right based on the arroe direction
 
-document.querySelectorAll('[data-arrow').forEach(arrow => {
+document.querySelectorAll('[data-arrow]').forEach(arrow => {
+
     arrow.addEventListener('click', () => {
         if (arrow.dataset.arrow === 'right') {
             let prev = arrow.previousElementSibling

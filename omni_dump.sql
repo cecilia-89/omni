@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `actor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actor` (
-  `id` varchar(60) NOT NULL,
+  `id` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `added_at` datetime DEFAULT NULL,
-  `last_name` varchar(32) NOT NULL,
-  `first_name` varchar(32) NOT NULL,
+  `last_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `first_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,11 +49,11 @@ DROP TABLE IF EXISTS `genre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `genre` (
-  `id` varchar(60) NOT NULL,
+  `id` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `added_at` datetime DEFAULT NULL,
-  `title` varchar(32) NOT NULL,
+  `title` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `genre` (
 
 LOCK TABLES `genre` WRITE;
 /*!40000 ALTER TABLE `genre` DISABLE KEYS */;
-INSERT INTO `genre` VALUES ('43cb9232-52c6-4e6c-9c84-48c776d1f0f5','2022-11-21 00:00:00','Romance'),('ded6288a-6e3f-4809-8318-f7d0bae223bc','2022-11-23 00:00:00','Drama');
+INSERT INTO `genre` VALUES ('43cb9232-52c6-4e6c-9c84-48c776d1f0f5','2022-11-21 00:00:00','Romance'),('ded6288a-6e3f-4809-8318-f7d0bae223bc','2022-11-23 00:00:00','Drama'),('f180abe4-138d-4efb-ae77-353ce5f8f11e','2022-12-07 05:15:13','Thriller'),('f4056232-e595-4d7a-9e94-4321beb02ec7','2022-12-07 05:15:35','Comedy');
 /*!40000 ALTER TABLE `genre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,19 +74,19 @@ DROP TABLE IF EXISTS `movie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `movie` (
-  `id` varchar(60) NOT NULL,
+  `id` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `added_at` datetime DEFAULT NULL,
-  `url` varchar(64) NOT NULL,
-  `title` varchar(32) NOT NULL,
+  `url` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `title` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `series` tinyint(1) DEFAULT NULL,
   `rated_18` tinyint(1) DEFAULT NULL,
-  `genre_id` varchar(64) NOT NULL,
-  `thumbnail` varchar(64) DEFAULT NULL,
-  `description` varchar(2096) NOT NULL,
+  `genre_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `thumbnail` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(2096) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `genre_id` (`genre_id`),
   CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `movie` (
 
 LOCK TABLES `movie` WRITE;
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
-INSERT INTO `movie` VALUES ('0864f73b-f116-4735-a3ed-7152d2686770','2022-11-23 00:00:00','https://www.youtube.com/embed/9dK-HC8t_yI','Unintentional',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','https://img.youtube.com/vi/9dK-HC8t_yI/maxresdefault.jpg','They say love hits when you least expect it. What if you unexpectedly create it, then you blow it and now you have to figure out how you lost it! Unintentional follows Sefi Madaki on an adventure that leads everywhere but where she planned. It is a story of self-discovery and the power of fate. Follow this romantic comedy to laugh, dream and root for love this season'),('45e34000-194f-4fd5-922d-c6306ec87f0f','2022-11-23 00:00:00','https://www.youtube.com/embed/p7cnVRqug8c','Best Friends Forever',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','https://img.youtube.com/vi/p7cnVRqug8c/maxresdefault.jpg','When Laura introduces her fiance to her best friend Evie. However, Evie and Dave had a history together. What will this mean for their relationship'),('9a4de33a-ad02-4ebf-b4cb-b75b3c4e38b9','2022-11-21 00:00:00','https://www.youtube.com/embed/wr0QR8rznAA','Lets switch wives',0,0,'43cb9232-52c6-4e6c-9c84-48c776d1f0f5','https://img.youtube.com/vi/wr0QR8rznAA/maxresdefault.jpg','Couples set to divorce their partners in court, must meet one last court order before their divorce is finalized'),('bd846631-7f85-4a77-9761-8b85d9a7599a','2022-11-23 00:00:00','https://www.youtube.com/embed/MyVG-UcdLU8','The perfect assitant',0,0,'43cb9232-52c6-4e6c-9c84-48c776d1f0f5','https://img.youtube.com/vi/MyVG-UcdLU8/maxresdefault.jpg','A man finds it difficult to carter for himself, until an oppurtunity landed at his feet. Just one jobwill make a differenecin his life'),('d6e600c8-12e0-4d96-9725-a5ebf7b85d84','2022-11-23 00:00:00','https://www.youtube.com/embed/U64A2f4O6KE','Victorias Secret',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','https://img.youtube.com/vi/U64A2f4O6KE/maxresdefault.jpg','Burdened with her mothers debt and the loss of a sister, victoria goes on a journey to conquer her fears and challanges, What does live have in store for her?');
+INSERT INTO `movie` VALUES ('0864f73b-f116-4735-a3ed-7152d2686770','2022-11-23 00:00:00','https://www.youtube.com/embed/9dK-HC8t_yI','Unintentional',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','https://img.youtube.com/vi/9dK-HC8t_yI/maxresdefault.jpg','They say love hits when you least expect it. What if you unexpectedly create it, then you blow it and now you have to figure out how you lost it! Unintentional follows Sefi Madaki on an adventure that leads everywhere but where she planned. It is a story of self-discovery and the power of fate. Follow this romantic comedy to laugh, dream and root for love this season'),('277f3238-a25d-4058-b446-211ce6be36e1','2022-12-07 11:26:59','https://fast.wistia.net/embed/iframe/cqb7stn3fm','Hey you',0,1,'43cb9232-52c6-4e6c-9c84-48c776d1f0f5','../static/images/Hey-you.webp','A shy nerdy guy meets a sexually confident woman via an adults-only website, but her life is complicated by the obsessive interest of other men.'),('41bc1617-1fb7-4411-8d1c-df069c72245d','2022-12-07 08:20:05','https://fast.wistia.net/embed/iframe/v46susmmy9','Soole',0,0,'f180abe4-138d-4efb-ae77-353ce5f8f11e','../static/images/Soole.jpg','A group of travellers on a bus journey home for Christmas find themselves entangled in a cat-and-mouse game with dangerous criminals.'),('45e34000-194f-4fd5-922d-c6306ec87f0f','2022-11-23 00:00:00','https://www.youtube.com/embed/p7cnVRqug8c','Best Friends Forever',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','https://img.youtube.com/vi/p7cnVRqug8c/maxresdefault.jpg','When Laura introduces her fiance to her best friend Evie. However, Evie and Dave had a history together. What will this mean for their relationship'),('9a4de33a-ad02-4ebf-b4cb-b75b3c4e38b9','2022-11-21 00:00:00','https://www.youtube.com/embed/wr0QR8rznAA','Lets switch wives',0,0,'43cb9232-52c6-4e6c-9c84-48c776d1f0f5','https://img.youtube.com/vi/wr0QR8rznAA/maxresdefault.jpg','Couples set to divorce their partners in court, must meet one last court order before their divorce is finalized'),('bd846631-7f85-4a77-9761-8b85d9a7599a','2022-11-23 00:00:00','https://www.youtube.com/embed/MyVG-UcdLU8','The perfect assitant',0,0,'43cb9232-52c6-4e6c-9c84-48c776d1f0f5','https://img.youtube.com/vi/MyVG-UcdLU8/maxresdefault.jpg','A man finds it difficult to carter for himself, until an oppurtunity landed at his feet. Just one jobwill make a differenecin his life'),('c45881a0-55ce-4e21-bed7-e08b5e75409a','2022-12-07 05:40:43','https://fast.wistia.net/embed/iframe/naqr95xsp2?videoFoam=true','The Razz Guy',0,0,'f4056232-e595-4d7a-9e94-4321beb02ec7','../static/images/razzGuy.jpg','When an international business merger is assigned to a rude and condescending senior executive, a curse that affects his ability to speak properly is cast on him by an office cleaner.'),('d6e600c8-12e0-4d96-9725-a5ebf7b85d84','2022-11-23 00:00:00','https://www.youtube.com/embed/U64A2f4O6KE','Victorias Secret',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','https://img.youtube.com/vi/U64A2f4O6KE/maxresdefault.jpg','Burdened with her mothers debt and the loss of a sister, victoria goes on a journey to conquer her fears and challanges, What does live have in store for her?'),('dbe87578-3ff1-4b3a-9859-7fa8b97a6074','2022-12-07 11:27:22','https://fast.wistia.net/embed/iframe/b2a2j7t0ba','Man of God',0,0,'ded6288a-6e3f-4809-8318-f7d0bae223bc','../static/images/man-of-god.png','Samuel forsakes his harsh religious upbringing to live his own life but his soul remains caught between the world and the faith he left behind.'),('e0b9c7ea-f52c-4958-ac61-630e9ef0b366','2022-12-07 08:01:00','https://fast.wistia.net/embed/iframe/qk4ep7fswa','Rattle Snake: The Ahanna Story',0,1,'f180abe4-138d-4efb-ae77-353ce5f8f11e','../static/images/rattlesnake.webp','Ahanna, a young gentleman who decides to rob the life he always wanted and dreamt of. He assembles a group of men called The Armadas with several different skills, carrying out a series of spectacular heists. But things takes a swift u-turn and the gang suddenly find themselves with better enemies on both sides.');
 /*!40000 ALTER TABLE `movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,13 +107,13 @@ DROP TABLE IF EXISTS `movie_actors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `movie_actors` (
-  `movie_id` varchar(60) DEFAULT NULL,
-  `actor_id` varchar(60) DEFAULT NULL,
+  `movie_id` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `actor_id` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   KEY `movie_id` (`movie_id`),
   KEY `actor_id` (`actor_id`),
   CONSTRAINT `movie_actors_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
   CONSTRAINT `movie_actors_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-01 21:18:30
+-- Dump completed on 2022-12-07 11:32:00
