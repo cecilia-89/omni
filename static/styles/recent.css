@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.slide-arrow {
+[data-angle] {
 	position: absolute;
 	top:50%;
 	z-index:2;
@@ -11,7 +11,7 @@
 
 }
 
-.slide-arrow:hover {
+[data-angle]:hover {
 	cursor: pointer;
 }
 
@@ -78,7 +78,9 @@
 button i {
 	margin-right:3%;
 }
-
+.hide {
+	display: none;
+}
 
 
 .recent button:hover {

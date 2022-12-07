@@ -23,7 +23,7 @@ nav > div:first-child {
 	display: block;
 	background-repeat: no-repeat;
 	background-position:center;
-	width:4vw;
+	width:50px;
 }
 
 form {
@@ -44,7 +44,7 @@ nav input {
 	width:0;
 	text-indent: 3%;
 	transition: all 0.5s ease-in-out;
-	font-size: 1.5vw;
+	font-size: 20px;
 
 }
 
@@ -57,24 +57,24 @@ nav input {
 
 .fa-magnifying-glass {
 	color:rgb(255, 255, 255);
-	font-size: 1.8vw;
+	font-size: 20px;
 	transition: width 0.5s ease-in-out;
 }
 
 form:hover .fa-magnifying-glass {
-	font-size: 1.3vw;
+	font-size: 30px;
 }
 
 .fa-house {
 	color: rgb(255, 255, 255);
-	font-size: 2vw;
+	font-size: 20px;
 	padding-right: 5%;
 }
 
 
 .fa-n, .fa-i {
 	color:white;
-	font-size: 1.8vw;
+	font-size: 20px;
 }
 
 
