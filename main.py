@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """starts a simple flask web app"""
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from models import storage
 from models.actor import Actor
 from models.genre import Genre
 from models.movie import Movie
+from api.v1.flask_app import *
 import uuid
 
 app = Flask(__name__)
 movies = storage.all(Movie)
 
-@app.route('/omni/', strict_slashes=False)
+@app.route('/', strict_slashes=False)
 def omni():
     """returns variables to practice.html template"""
     movies = storage.all(Movie)
@@ -22,7 +23,7 @@ def omni():
                            count=count
                            )
 
-@app.route('/omni/<movie_id>', strict_slashes=False)
+@app.route('/<movie_id>', strict_slashes=False)
 def omni_movie(movie_id):
     movie = storage.get(Movie, movie_id)
     items = [item for item in movies if movie.id != item.id]
@@ -33,8 +34,11 @@ def omni_movie(movie_id):
                             movie=movie,
                             recommended=recommended)
 
+@app.route('/search', methods=['GET'], strict_slashes=False)
+def search():
 
-
+   movies = [movie.to_dict() for movie in storage.all(Movie)]
+   return jsonify(movies)
 
 
 @app.teardown_appcontext

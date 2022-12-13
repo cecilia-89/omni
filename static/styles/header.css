@@ -1,36 +1,28 @@
 nav {
 	background-color:hsl(0, 0%, 0%);
 	width: 100%;
-	display: flex;
-	align-items: center;
+	display:flex;
 }
 
 nav > div:nth-child(2) {
-	display:flex;
+	/* display:flex; */
 	width:100%;
-	justify-content: flex-end;
-	align-items: center;
-	gap:3%;
+	position: relative;
+	padding:1% 2% 0 0;
+	gap:2%;
 }
 
-nav > div:first-child {
-	display:flex;
-	align-items: center;
-	padding-left:3%;
+.search {
+	width:50vw;
+	opacity: 1;
 }
+
 
 #home_logo {
 	display: block;
 	background-repeat: no-repeat;
 	background-position:center;
 	width:45px;
-}
-
-form {
-	position:relative;
-	height: 100%;
-	align-items: center;
-	justify-content: center;
 }
 
 
@@ -41,28 +33,45 @@ nav input {
 	padding-top: 1%;
 	color: rgb(255, 255, 255);
 	outline: 0;
-	width:0;
-	text-indent: 3%;
-	transition: all 0.5s ease-in-out;
+	width:10%;
+	opacity: 0;
+	text-indent: 4%;
+	transition: width 0.5s ease-in-out;
+	transition-delay: 5ms;
 	font-size: 20px;
-
+	float: right;
 }
 
-.dropdown {
-	width:85%;
-	background: red;
-	margin:0;
-	border-radius: 10px;
+.search-wrap > div {
+	width: 50%;
+	float: right;
+	position: relative;
 }
+
+.search-wrap ul {
+	background: rgb(255, 255, 255);
+	position: absolute;
+	width:100%;
+	top:calc(100% + 0.18em);
+	border-radius: 5px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index:3
+}
+
 
 .fa-magnifying-glass {
-	color:rgb(255, 255, 255);
-	font-size: 20px;
+	position:absolute;
+	bottom:35%;
+	right:4%;
+	color:white;
+	font-size: 100%;
 	transition: width 0.5s ease-in-out;
 }
 
-form:hover .fa-magnifying-glass {
-	font-size: 30px;
+.fa-magnifying-glass:hover {
+	cursor:pointer;
 }
 
 .fa-house {
@@ -81,6 +90,9 @@ form:hover .fa-magnifying-glass {
 	margin-left: -10px;
 }
 
+.slider img {
+	height:100%;
+}
 
 nav button {
 	background: rgba(0, 0, 0, 0);
@@ -93,7 +105,7 @@ nav button:focus {
 	cursor:pointer;
 }
 
-form:hover [data-search] {
-	width: 35vw;
+.visible {
 	opacity:1;
+	width:100%;
 }

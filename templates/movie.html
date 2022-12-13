@@ -7,12 +7,27 @@
 	<link rel="stylesheet" href="../static/styles/common.css">
 	<link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
 	<link rel="stylesheet" href="../static/styles/movie.css">
+	<link rel="stylesheet" href="../static/styles/header.css">
+	<link rel="stylesheet" href="../static/styles/footer.css">
+	<script src="https://kit.fontawesome.com/e8b132ab7c.js" crossorigin="anonymous"></script>
 	<title>OMNI - {{movie.title}}</title>
 </head>
 <body>
+	<nav>
+		<div>
+			<img id="home_logo" src="../static/images/omni.ico" alt="">
+			<i class="fa-solid fa-n"></i>
+			<i class="fa-solid fa-i"></i>
+		</div>
+		<div>
+			<input data-search type="text" placeholder="   Search {{ count }} Movies..." name="" id="">
+			<i class="fa-solid fa-magnifying-glass"></i>
+			<a href="{{ url_for('omni') }}"><i class="fa-solid fa-house"></i></a>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="iframe">
-			<iframe src="{{movie.url}}?warningTitle=0&amp;peertubeLink=0" allow="fullscreen"  frameborder="0"></iframe>
+			<iframe src="{{movie.url}}" allow="fullscreen"  frameborder="0"></iframe>
 		</div>
 
 		<div class="movie-info">
@@ -39,10 +54,25 @@
 			<div>More Like This</div>
 			<div class="recommended">
 				{%for movie in recommended%}
-				<div><a href="{{ url_for('omni_movie', movie_id=movie.id) }}"><img src={{movie.thumbnail}} alt=""></a></div>
+				<div class="similar">
+					<div>
+						<a href="{{ url_for('omni_movie', movie_id=movie.id) }}">
+							<img src={{movie.thumbnail}} alt="">
+						</a>
+					</div>
+					<div class="summary">
+						{{movie.description}}
+					</div>
+				</div>
+
 				{%endfor%}
 			</div>
 		</div>
+		<footer>
+			<p>OMNI &#169; 2022</p>
+		</footer>
 	</div>
+
+	<script src="../static/scripts/main.js"></script>
 </body>
 </html>

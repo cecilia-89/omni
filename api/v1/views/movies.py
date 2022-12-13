@@ -26,13 +26,27 @@ def movies():
     return jsonify(movies)
 
 @app_views.route('/movie/<movie_id>',
-                 methods=['DELETE'],
+                 methods=['DELETE', 'PUT'],
                  strict_slashes=False)
 def delete_movie(movie_id):
     """deletes a movie based on it's id"""
+    movie = storage.get(Movie, movie_id)
+    if movie is None:
+        abort(404)
+
     if request.method == 'DELETE':
-        movie = storage.get(Movie, movie_id)
         storage.delete(movie)
         storage.save()
+        return "deleted\n"
 
-    return "deleted\n"
+    if request.method == 'PUT':
+        res = request.get_json()
+        if res is None:
+            abort(400, description='Not a JSON')
+        for k, v in res.items():
+            if k.endswith('ed_at')== 'id':
+                continue
+            setattr(movie, k, v)
+        movie.save()
+
+    return jsonify(city.to_dict())

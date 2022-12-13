@@ -1,5 +1,50 @@
 //Module: main.js resposible for site responsive
 
+
+//displays search when user clicks on it
+document.querySelector('.fa-magnifying-glass').addEventListener(
+    'click', () => {
+        document.querySelector(
+            '[data-search]').classList.toggle('visible')
+    })
+
+//returns movie title that includes user input
+document.querySelector(
+    '[data-search]').addEventListener('input', (e) => {
+        let ul = document.querySelector('[data-list]')
+        value = (e.target.value.toLowerCase())
+        ul.classList.remove('hide')
+
+        if (value === "") {return}
+
+        while (ul.firstChild) {
+            ul.removeChild(ul.firstChild)
+        }
+
+        movies.forEach(movie => {
+            let title = movie.title.toLowerCase()
+
+            if (title.includes(value)){
+                let li = document.createElement('li')
+                li.textContent = movie.title
+                ul.append(li)
+            }
+        })
+    })
+
+//fetch api that gets data from the url provided
+
+let movies = []
+fetch('/search').then(
+    (response) =>
+    response.json()).then(
+        (data) =>
+        movies = data.map(item => {
+            return {title: item.title}
+        })
+    )
+
+
 let start = 0;
 let end = 0;
 
