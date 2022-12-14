@@ -1,8 +1,17 @@
 
+nav {
+	position:absolute;
+	top:0;
+	z-index:1;
+}
 .iframe {
 	height:0;
 	position:relative;
 	padding-bottom: 56.25%;
+}
+
+.hide {
+	display:none;
 }
 
 .movie-info, .movie-info div:nth-child(3), .movie-info div:nth-child(4) {

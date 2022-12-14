@@ -74,7 +74,7 @@ section p {
 	left:40%;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 850px) {
 	[data-angle], .genre:hover [data-arrow] {
 		display: none;
 	}

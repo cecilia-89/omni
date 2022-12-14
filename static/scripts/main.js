@@ -2,20 +2,26 @@
 
 
 //displays search when user clicks on it
+let ul = document.querySelector('[data-list]')
+
 document.querySelector('.fa-magnifying-glass').addEventListener(
     'click', () => {
-        document.querySelector(
-            '[data-search]').classList.toggle('visible')
+        document.querySelector('[data-search]').classList.toggle('visible')
+        document.querySelector('.logo').classList.toggle('none')
+        ul.classList.add('hide')
     })
 
 //returns movie title that includes user input
 document.querySelector(
     '[data-search]').addEventListener('input', (e) => {
-        let ul = document.querySelector('[data-list]')
+
         value = (e.target.value.toLowerCase())
+        let spaces = value.trim().length
         ul.classList.remove('hide')
 
-        if (value === "") {return}
+        if (spaces === 0) {
+            ul.classList.add('hide')
+        }
 
         while (ul.firstChild) {
             ul.removeChild(ul.firstChild)
@@ -28,6 +34,8 @@ document.querySelector(
                 let li = document.createElement('li')
                 li.textContent = movie.title
                 ul.append(li)
+            } else {
+                ul.style.border = '0'
             }
         })
     })
@@ -78,17 +86,17 @@ function checkDir(param) {
 
 
 // simple query to enable div scroll left
-//or right based on the arroe direction
+//or right based on the arrow direction
 
 document.querySelectorAll('[data-arrow]').forEach(arrow => {
 
     arrow.addEventListener('click', () => {
         if (arrow.dataset.arrow === 'right') {
             let prev = arrow.previousElementSibling
-            prev.scrollBy(-900, 0)
+            prev.scrollBy(900, 0)
         } else {
             let next = arrow.nextElementSibling
-            next.scrollBy(900, 0)
+            next.scrollBy(-900, 0)
         }
     })
 })

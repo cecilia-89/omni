@@ -41,6 +41,7 @@ def delete_movie(movie_id):
 
     if request.method == 'PUT':
         res = request.get_json()
+        res['rated_18'] = strtobool(res['rated_18'])
         if res is None:
             abort(400, description='Not a JSON')
         for k, v in res.items():
@@ -49,4 +50,4 @@ def delete_movie(movie_id):
             setattr(movie, k, v)
         movie.save()
 
-    return jsonify(city.to_dict())
+    return jsonify(movie.to_dict())

@@ -16,18 +16,23 @@
 	<nav>
 		<div>
 			<img id="home_logo" src="../static/images/omni.ico" alt="">
-			<i class="fa-solid fa-n"></i>
-			<i class="fa-solid fa-i"></i>
 		</div>
-		<div>
-			<input data-search type="text" placeholder="   Search {{ count }} Movies..." name="" id="">
+		<div class="search-wrap">
+			<div data-srch class="visible">
+				<input data-search type="search" placeholder="Search {{ count }} Movies..." name="" id="">
+				<ul data-list class="hide">
+
+				</ul>
+			</div>
 			<i class="fa-solid fa-magnifying-glass"></i>
-			<a href="{{ url_for('omni') }}"><i class="fa-solid fa-house"></i></a>
+		</div>
+		<div class="home">
+			<a href="{{ url_for('omni')}}"><i class="fa-solid fa-house"></i></a>
 		</div>
 	</nav>
 	<div class="container">
 		<div class="iframe">
-			<iframe src="{{movie.url}}" allow="fullscreen"  frameborder="0"></iframe>
+			<iframe src="https://www.cincopa.com/media-platform/iframe.aspx?fid={{movie.url}}" allow="fullscreen"  frameborder="0"></iframe>
 		</div>
 
 		<div class="movie-info">
